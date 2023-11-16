@@ -53,6 +53,15 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fafd67c-4dee-4db9-a3cb-2cbb9d6b51d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -240,6 +249,17 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f782ba2c-3d11-4a39-8d67-394959853290"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -830,6 +850,7 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
         m_GamePlayer_Move = m_GamePlayer.FindAction("Move", throwIfNotFound: true);
         m_GamePlayer_Look = m_GamePlayer.FindAction("Look", throwIfNotFound: true);
         m_GamePlayer_Fire = m_GamePlayer.FindAction("Fire", throwIfNotFound: true);
+        m_GamePlayer_Jump = m_GamePlayer.FindAction("Jump", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -906,6 +927,7 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlayer_Move;
     private readonly InputAction m_GamePlayer_Look;
     private readonly InputAction m_GamePlayer_Fire;
+    private readonly InputAction m_GamePlayer_Jump;
     public struct GamePlayerActions
     {
         private @PlayinputControl m_Wrapper;
@@ -913,6 +935,7 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_GamePlayer_Move;
         public InputAction @Look => m_Wrapper.m_GamePlayer_Look;
         public InputAction @Fire => m_Wrapper.m_GamePlayer_Fire;
+        public InputAction @Jump => m_Wrapper.m_GamePlayer_Jump;
         public InputActionMap Get() { return m_Wrapper.m_GamePlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -931,6 +954,9 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
             @Fire.started += instance.OnFire;
             @Fire.performed += instance.OnFire;
             @Fire.canceled += instance.OnFire;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IGamePlayerActions instance)
@@ -944,6 +970,9 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
             @Fire.started -= instance.OnFire;
             @Fire.performed -= instance.OnFire;
             @Fire.canceled -= instance.OnFire;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IGamePlayerActions instance)
@@ -1129,6 +1158,7 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
