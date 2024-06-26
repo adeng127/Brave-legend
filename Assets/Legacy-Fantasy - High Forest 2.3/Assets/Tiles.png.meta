@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1052,7 +1071,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 4, y: 8}
+        - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 4, y: -8}
+        - {x: 5, y: -5}
+        - {x: 5, y: 6}
       tessellationDetail: 0
       bones: []
       spriteID: 097de365d80d51446b34f64f1a398aee
@@ -1451,7 +1476,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -5, y: 8}
+        - {x: -7, y: 6}
+        - {x: -7, y: -5}
+        - {x: -5, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 597796f67284869408c12a2eb765570c
@@ -2700,7 +2731,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_123
+      name: Ground2-1
       rect:
         serializedVersion: 2
         x: 0
@@ -2721,7 +2752,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_124
+      name: Ground2-2
       rect:
         serializedVersion: 2
         x: 16
@@ -2742,7 +2773,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_125
+      name: Ground2-3
       rect:
         serializedVersion: 2
         x: 32
@@ -2763,7 +2794,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_126
+      name: Ground2-4
       rect:
         serializedVersion: 2
         x: 48
@@ -2784,7 +2815,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_127
+      name: Ground2-5
       rect:
         serializedVersion: 2
         x: 64
@@ -4758,7 +4789,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_221
+      name: ground2-x
       rect:
         serializedVersion: 2
         x: 32
@@ -4779,7 +4810,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_222
+      name: ground2-y
       rect:
         serializedVersion: 2
         x: 48
@@ -7635,7 +7666,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_358
+      name: waterpile1-1
       rect:
         serializedVersion: 2
         x: 96
@@ -7656,7 +7687,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_359
+      name: waterpile1-2
       rect:
         serializedVersion: 2
         x: 112
@@ -7677,7 +7708,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_360
+      name: waterpile1-3
       rect:
         serializedVersion: 2
         x: 128
@@ -7698,7 +7729,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_361
+      name: waterpile1-4
       rect:
         serializedVersion: 2
         x: 144
@@ -7992,7 +8023,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_375
+      name: waterpile1-5
       rect:
         serializedVersion: 2
         x: 96
@@ -8013,7 +8044,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_376
+      name: waterpile1-6
       rect:
         serializedVersion: 2
         x: 112
@@ -8034,7 +8065,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_377
+      name: waterpile1-7
       rect:
         serializedVersion: 2
         x: 128
@@ -8055,7 +8086,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_378
+      name: waterpile1-8
       rect:
         serializedVersion: 2
         x: 144
@@ -8412,7 +8443,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_395
+      name: waterpile1-9
       rect:
         serializedVersion: 2
         x: 96
@@ -8433,7 +8464,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_396
+      name: waterpile1-10
       rect:
         serializedVersion: 2
         x: 112
@@ -8454,7 +8485,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_397
+      name: waterpile1-11
       rect:
         serializedVersion: 2
         x: 128
@@ -8475,7 +8506,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_398
+      name: waterpile1-12
       rect:
         serializedVersion: 2
         x: 144
@@ -9885,6 +9916,11 @@ TextureImporter:
       Ground1-7: -426207774
       Ground1-8: -1973865635
       Ground1-9: 577375242
+      Ground2-1: -1780262202
+      Ground2-2: -1854575147
+      Ground2-3: -949453822
+      Ground2-4: -1826523818
+      Ground2-5: -138665865
       Tiles_0: 345376686
       Tiles_1: -1616692881
       Tiles_10: -2113748721
@@ -9913,11 +9949,6 @@ TextureImporter:
       Tiles_120: 1706162090
       Tiles_121: -477299605
       Tiles_122: 1049587440
-      Tiles_123: -1780262202
-      Tiles_124: -1854575147
-      Tiles_125: -949453822
-      Tiles_126: -1826523818
-      Tiles_127: -138665865
       Tiles_128: 54847344
       Tiles_129: -793609283
       Tiles_13: -15847774
@@ -10017,8 +10048,6 @@ TextureImporter:
       Tiles_219: -370890321
       Tiles_22: -606148054
       Tiles_220: 393298977
-      Tiles_221: -601736956
-      Tiles_222: 1162409220
       Tiles_223: -1534250181
       Tiles_224: 1015656201
       Tiles_225: 1949585786
@@ -10162,11 +10191,7 @@ TextureImporter:
       Tiles_352: 1065082856
       Tiles_353: -297096794
       Tiles_354: -483015638
-      Tiles_358: 503692644
-      Tiles_359: 1539532448
       Tiles_36: -2104882896
-      Tiles_360: -2107940410
-      Tiles_361: 773203173
       Tiles_362: -2052415437
       Tiles_363: 1887621076
       Tiles_364: 1420177731
@@ -10178,10 +10203,6 @@ TextureImporter:
       Tiles_37: -1434548021
       Tiles_370: 1114816329
       Tiles_371: -12898765
-      Tiles_375: -2102309816
-      Tiles_376: 1489927446
-      Tiles_377: 1257329349
-      Tiles_378: -1754551685
       Tiles_379: -1363533396
       Tiles_38: 1122847948
       Tiles_380: -496822214
@@ -10197,10 +10218,6 @@ TextureImporter:
       Tiles_39: 2145839073
       Tiles_390: -546938549
       Tiles_391: 696286601
-      Tiles_395: 482609694
-      Tiles_396: -959255447
-      Tiles_397: 282484449
-      Tiles_398: 503283967
       Tiles_399: 35624125
       Tiles_4: -1542270590
       Tiles_400: 823855500
@@ -10335,9 +10352,22 @@ TextureImporter:
       WaterFall1-7: 2005797059
       WaterFall1-8: 325438086
       WaterFall1-9: -348744848
-  spritePackingTag: 
+      ground2-x: -601736956
+      ground2-y: 1162409220
+      waterpile1-1: 503692644
+      waterpile1-10: -959255447
+      waterpile1-11: 282484449
+      waterpile1-12: 503283967
+      waterpile1-2: 1539532448
+      waterpile1-3: -2107940410
+      waterpile1-4: 773203173
+      waterpile1-5: -2102309816
+      waterpile1-6: 1489927446
+      waterpile1-7: 1257329349
+      waterpile1-8: -1754551685
+      waterpile1-9: 482609694
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

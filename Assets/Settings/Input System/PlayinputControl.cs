@@ -62,6 +62,33 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""39f0c829-2bb7-4d1a-ae0e-cd003fafa465"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c5bf3b8-3768-4e94-9739-3e7a975aa7d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab10ae03-dc39-4453-a143-2ad3f7c734d6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -260,6 +287,39 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f376903e-7178-4f98-9515-a69f2bb2e277"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""304d2f57-61d8-476f-bfca-d2e5db1263f4"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7bc58246-9504-474e-b125-84853d64fd81"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -851,6 +911,9 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
         m_GamePlayer_Look = m_GamePlayer.FindAction("Look", throwIfNotFound: true);
         m_GamePlayer_Fire = m_GamePlayer.FindAction("Fire", throwIfNotFound: true);
         m_GamePlayer_Jump = m_GamePlayer.FindAction("Jump", throwIfNotFound: true);
+        m_GamePlayer_Attack = m_GamePlayer.FindAction("Attack", throwIfNotFound: true);
+        m_GamePlayer_Slide = m_GamePlayer.FindAction("Slide", throwIfNotFound: true);
+        m_GamePlayer_Confirm = m_GamePlayer.FindAction("Confirm", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -928,6 +991,9 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlayer_Look;
     private readonly InputAction m_GamePlayer_Fire;
     private readonly InputAction m_GamePlayer_Jump;
+    private readonly InputAction m_GamePlayer_Attack;
+    private readonly InputAction m_GamePlayer_Slide;
+    private readonly InputAction m_GamePlayer_Confirm;
     public struct GamePlayerActions
     {
         private @PlayinputControl m_Wrapper;
@@ -936,6 +1002,9 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_GamePlayer_Look;
         public InputAction @Fire => m_Wrapper.m_GamePlayer_Fire;
         public InputAction @Jump => m_Wrapper.m_GamePlayer_Jump;
+        public InputAction @Attack => m_Wrapper.m_GamePlayer_Attack;
+        public InputAction @Slide => m_Wrapper.m_GamePlayer_Slide;
+        public InputAction @Confirm => m_Wrapper.m_GamePlayer_Confirm;
         public InputActionMap Get() { return m_Wrapper.m_GamePlayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -957,6 +1026,15 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @Slide.started += instance.OnSlide;
+            @Slide.performed += instance.OnSlide;
+            @Slide.canceled += instance.OnSlide;
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
         }
 
         private void UnregisterCallbacks(IGamePlayerActions instance)
@@ -973,6 +1051,15 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @Slide.started -= instance.OnSlide;
+            @Slide.performed -= instance.OnSlide;
+            @Slide.canceled -= instance.OnSlide;
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
         }
 
         public void RemoveCallbacks(IGamePlayerActions instance)
@@ -1159,6 +1246,9 @@ public partial class @PlayinputControl: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
