@@ -1296,17 +1296,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6faa8384d2acbe14aac827f4bc698188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseEvent: {fileID: 11400000, guid: 564fb9f169346774e9500131bd438907, type: 2}
   playerStar: {fileID: 1684952349}
   HealthEvent: {fileID: 11400000, guid: 985a39a7e0a0dd944a010dc4d3f61955, type: 2}
   unLoadedSceneEvent: {fileID: 11400000, guid: 9f2e17a87f607484b88f71622d882d57, type: 2}
   LoadDataEvent: {fileID: 11400000, guid: 9f338b446f54cc742bb7c42f97a83132, type: 2}
   gameOverEvent: {fileID: 11400000, guid: e892b7a670167e849a3a1150a8558d41, type: 2}
   backToMenuEvent: {fileID: 11400000, guid: 84218f79384f68a48b9eefc7577b080a, type: 2}
+  syncVolumeEvent: {fileID: 11400000, guid: fdd0554254bbf504bae5ac14a7666a8c, type: 2}
   gameOverPanel: {fileID: 1208522653}
   restartbtn: {fileID: 1355229517}
   mobileTouch: {fileID: 1682861077}
   settingButton: {fileID: 1598501279}
   pausePanel: {fileID: 1092690719}
+  volumeSlider: {fileID: 1190913050}
 --- !u!4 &346425712
 Transform:
   m_ObjectHideFlags: 0
@@ -2838,10 +2841,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f17531e147bee499a49bcf7c6b85a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncVolumeEvent: 0
+  syncVolumeEvent: {fileID: 11400000, guid: fdd0554254bbf504bae5ac14a7666a8c, type: 2}
   BGMAudioEvent: {fileID: 11400000, guid: fe2f353b07e254c4f86b948e6522903e, type: 2}
   FXAudioEvent: {fileID: 11400000, guid: b06698a052eac314bae12d85c09f47f1, type: 2}
   VolumeEvent: {fileID: 11400000, guid: 05526c9a3a1a77846b14f2dc88f3aba2, type: 2}
+  PauseEvent: {fileID: 11400000, guid: 564fb9f169346774e9500131bd438907, type: 2}
   BGMSource: {fileID: 1095525995}
   FXSource: {fileID: 1095525997}
   mixer: {fileID: 24100000, guid: e5865990f7111bd44960ecb75b1ca735, type: 2}
